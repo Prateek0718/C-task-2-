@@ -1,0 +1,58 @@
+﻿@model IEnumerable<LibraryManagementCs2.Models.Book>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Library Book Information</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dateIssuedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dateOfReturning)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nameOfAuthor)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateIssuedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateOfReturning)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nameOfAuthor)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
